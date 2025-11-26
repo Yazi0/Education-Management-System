@@ -1,0 +1,262 @@
+1. System Roles
+
+Owner
+
+Teacher
+
+Student
+
+2. Core Features
+Owner
+
+Add/update/delete Students
+
+Add/update/delete Teachers
+
+Auto-generate unique barcode for each student
+
+Scan barcode to:
+
+View complete student details
+
+Mark attendance
+
+Mark monthly payment
+
+Send SMS on:
+
+Student arrival
+
+Monthly payment confirmation
+
+Dashboard includes:
+
+Total registered students
+
+Total teachers
+
+Number of students who paid this month
+
+Today’s attendance
+
+Income breakdown
+
+Owner receives 20% of subject fee income
+
+Teachers receive 80%
+
+Teacher
+
+Login using owner-generated username + password
+
+Dashboard includes:
+
+Students enrolled in teacher’s subjects
+
+Students grouped by Grade
+
+Student payment status
+
+Teacher income (80% of paid subject fees)
+
+Can upload:
+
+Notes
+
+Videos
+
+Online quizzes
+
+Physical exam results
+
+Can update results anytime
+
+Student
+
+Login using:
+
+Register Number
+
+Registered Phone Number
+
+OTP verification
+
+Create password
+
+Dashboard includes:
+
+All class subjects
+
+Access only to paid subjects
+
+View notes, videos
+
+Attempt online quizzes
+
+View quiz results
+
+View physical exam results
+
+View result charts
+
+3. Functional Flow Overview
+Student Registration
+
+Owner adds student
+
+System generates barcode
+
+Student receives unique Register Number
+
+Class Attendance
+
+Owner scans barcode
+
+System shows student details
+
+Attendance marked automatically
+
+SMS sent to parent/student
+
+Payments
+
+Owner marks payment (or auto-marks after POS integration)
+
+Payment status updated per subject
+
+SMS sent
+
+Dashboard incomes updated
+
+4. Income Formula
+Per Subject Income
+subject_income = students_paid * subject_fee
+owner_income = subject_income * 0.20
+teacher_income = subject_income * 0.80
+
+5. Tech Stack
+Frontend
+
+React
+
+Axios
+
+React Router
+
+Tailwind (optional)
+
+Backend
+
+Django
+
+Django REST Framework
+
+JWT Authentication
+
+Barcode/QR Generator (Python lib)
+
+Database
+
+SQLite (development)
+
+Tables:
+
+Users (Owner/Teacher/Student)
+
+Subjects
+
+StudentSubjects
+
+Payments
+
+Attendance
+
+Notes
+
+Videos
+
+Quizzes
+
+Quiz Results
+
+Exam Results
+
+6. API Endpoints (High-Level)
+Auth
+
+/api/auth/login
+
+/api/auth/otp
+
+/api/auth/create-password
+
+Students
+
+/api/students/
+
+/api/students/<id>/
+
+/api/students/<id>/barcode/
+
+/api/students/<id>/attendance/mark
+
+/api/students/<id>/payment/mark
+
+Teachers
+
+/api/teachers/
+
+/api/teachers/<id>/subjects/
+
+/api/teachers/<id>/dashboard/
+
+Learning Content
+
+/api/notes/
+
+/api/videos/
+
+/api/quizzes/
+
+/api/exams/
+
+7. Frontend Pages (React)
+Owner
+
+Owner Login
+
+Owner Dashboard
+
+Manage Students
+
+Manage Teachers
+
+Scan Barcode Page
+
+Reports / Income
+
+Teacher
+
+Teacher Login
+
+Teacher Dashboard
+
+Student List by Grade
+
+Upload Center (Notes/Videos/Quizzes/Exams)
+
+Student
+
+Student Login
+
+OTP Page
+
+Create Password
+
+Student Dashboard
+
+Subject Content (Notes/Videos)
+
+Quizzes
+
+Results Charts
